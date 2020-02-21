@@ -1,0 +1,40 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * *  * * * * * * * * * * * -->
+<!-- * * * * * * * * * *  I did not use Mat Card just * * * * * * * * * * -->
+<!-- * * * * * * * * * * . for diversification in design * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * *  * * * * * * * * * * -->
+<!-- * * * * * * *  * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<div >
+
+    <div  class="header">
+
+        <div class="toolbar" role="banner">
+            <img style="width: 32px ; cursor: pointer"  alt="Maids Logo" src="assets/back.png" (click)="goBackToList()"/>
+
+
+            <span>User Details</span>
+        </div>
+
+        <!--<p >Total Users : {{resList.total}}</p>-->
+    </div>
+
+    <div class="content">
+
+        <mat-progress-bar class="example-h2" [mode]="'indeterminate'"  [hidden]="!isLoading"></mat-progress-bar>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top"  *ngIf="user.avatar === null || user.avatar === ''" src="https://jcresscounseling.com/wp-content/uploads/2018/06/bio-portrait-placeholder.jpg" alt = "{{user.first_name+' '+user.last_name}}">
+        <img class="card-img-top" *ngIf="user.avatar !== null && user.avatar !== ''" src="{{user.avatar}}" alt = "{{user.first_name+' '+user.last_name}}">
+        <div class="card-body">
+            <p><b>ID :</b> {{user.id}}</p>
+            <p><b>Name :</b> {{user.first_name+" "+user.last_name}}</p>
+            <p><b>Email: </b>{{user.email}}</p>
+        </div>
+    </div>
+    </div>
+
+    <!--<p >Total Users : {{resList.total}}</p>-->
+</div>

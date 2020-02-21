@@ -1,0 +1,55 @@
+
+<div onscroll="onScroll($event)">
+
+    <div  class="header">
+
+        <div class="toolbar" role="banner">
+            <img width="40" alt="Maids Logo" src="assets/logo.png"/>
+            <span>Welcome To Maids Where Dreams become true</span>
+
+
+
+            <div class="container" >
+                <input (input)="filterRes()" type="text" placeholder="Search..." [(ngModel)]="searchText" >
+                <div class="search"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <mat-progress-bar [mode]="'indeterminate'"  [hidden]="!isLoading"></mat-progress-bar>
+
+    <mat-grid-list id="grid-list" cols="2" class="card-container" rowHeight="400px" >
+        <mat-grid-tile class="tile" *ngFor = "let user of this.data">
+
+            <a routerLink="../user/{{user.id}}" routerLinkActive="active">
+
+                <mat-card class = "card">
+
+                    <img mat-card-image *ngIf="user.avatar !== null && user.avatar !== ''" src="{{user.avatar}}" alt = "{{user.first_name+' '+user.last_name}}">
+                    <mat-card-content>
+                        <p><b>ID :</b> {{user.id}}</p>
+                        <p><b>Name :</b> {{user.first_name+" "+user.last_name}}</p>
+                        <p><b>Email: </b>{{user.email}}</p>
+                    </mat-card-content>
+
+                </mat-card>
+            </a>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+        <button mat-fab class ="float"  style="background: url(assets/up.png); background-repeat: no-repeat;  background-position: center; background-size: 100%" *ngIf="isShow" (click)="gotoTop()">
+            
+        </button>
+
+    </div>
+</div>
+
+
+
+
+
+
+
